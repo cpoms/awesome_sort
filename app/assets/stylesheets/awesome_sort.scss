@@ -1,0 +1,25 @@
+th.orderable a {
+  color: black !important;
+}
+
+th.orderable.order-asc:after {
+  display: inline-block;
+  content: "\25BE";
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+th.orderable.order-desc:after {
+  display: inline-block;
+  content: "\25BE";
+  margin-left: 5px;
+}
+
+th.orderable.order-asc, th.orderable.order-desc {
+  background-color: #f2f2f2;
+}
