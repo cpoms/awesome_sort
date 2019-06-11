@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    awesome_sort (0.1.0)
+    awesome_sort (0.2.0)
       activesupport (>= 3.2, < 6.1)
       railties (>= 3.2, < 6.1)
 
@@ -64,8 +64,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
   awesome_sort!
+  bundler
   minitest (~> 5.0)
   rake (~> 10.0)
 

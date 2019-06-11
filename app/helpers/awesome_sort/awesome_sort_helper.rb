@@ -1,6 +1,7 @@
 module AwesomeSort
   module AwesomeSortHelper
     def column_sort(args = {})
+      args[:extra] ||= {}
       # Should pass it column_name, link_name, controller_name and
       # optionally width, html_options and header_classes
       args.reverse_merge!(
@@ -21,7 +22,7 @@ module AwesomeSort
       content_tag(:th, width: args[:width], class: klass) do
         link_to(
           args[:link_name],
-          public_send(c_method, search: params[:search], sort_order: sort_order, sort_by: args[:column_name]),
+          public_send(c_method, { sort_order: sort_order, sort_by: args[:column_name] }.merge(args[:extra])),
           { remote: true }.merge(args[:html_options])
         )
       end
