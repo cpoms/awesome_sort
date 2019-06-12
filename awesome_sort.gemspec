@@ -13,7 +13,10 @@ Gem::Specification.new do |spec|
   spec.description   = %q{This gem should make the creation of responsive sortable tables much easier.}
   spec.homepage      = "https://cpoms.co.uk"
   spec.license       = "MIT"
-  spec.metadata      = {"source_code_url" => "https://github.com/meritec/awesome_sort"}
+  spec.metadata      = { 
+    "source_code_uri"   => "https://github.com/meritec/awesome_sort",
+    "documentation_uri" => "https://github.com/meritec/awesome_sort"
+  }
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
