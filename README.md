@@ -40,6 +40,21 @@ AwesomeSort.configure do |config|
 end
 ```
 
+In the view, when creating columns for the table, use the following syntax:
+```ruby
+  <%= column_sort(
+    column_name: "title",
+    width: "10%",
+    link_name: "Title",
+    controller_name: "contact_index",
+    extra: { search: @search }) %>
+```
+where: <br />
+  "column_name" will be the name of your db column <br />
+  "width" will be your column width <br />
+  "link_name" will be the name of the column displayed as a link <br />
+  "controller_name" will be the controller name for logic <br />
+  "extra" pass in there extra parameters <br />
 
 ## Development
 
