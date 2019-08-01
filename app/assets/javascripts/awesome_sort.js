@@ -20,11 +20,27 @@ function orderable() {
   }
 
   $(".orderable").each(function() {
-    if ($(this).hasClass('order-asc')) {
-      var link = window.location.pathname + '?sort_by=' + $(this).data('order-term') + '&sort_order=desc' + window.location.hash
-    } else {
-      var link = window.location.pathname + '?sort_by=' + $(this).data('order-term') + '&sort_order=asc' + window.location.hash
-    }
-    $(this).wrapInner($('<a/>').attr('href', link));
+    var url = new URL(window.location)
+    url.searchParams.append('sort_by', $(this).data('order-term'))
+    url.searchParams.append('sort_order', $(this).hasClass('order-asc') ? 'desc' : 'asc')
+
+    var element = $(this).has('> a').length ? $(this).children('a') : $(this).wrapInner($('<a/>'))
+    element.attr('href', url.toString());
   });
 };
+
+function fireEvent(event) {
+  var e = new Event(event)
+  window.dispatchEvent(e)
+}
+
+// Have to manually fire event when history is updated (url changes)
+var _pushState = history.pushState;
+history.pushState = function() {
+  _pushState.apply(history, arguments);
+  fireEvent('pushState');
+};
+
+window.addEventListener('pushState', function() {
+  orderable()
+})
