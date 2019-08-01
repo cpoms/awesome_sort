@@ -19,7 +19,7 @@ module AwesomeSort
         else
           "asc"
         end
-      content_tag(:th, width: args[:width], class: klass) do
+      content_tag(:th, width: args[:width], class: klass, data: { order_term: args[:column_name] }) do
         link_to(
           args[:link_name],
           public_send(c_method, { sort_order: sort_order, sort_by: args[:column_name] }.merge(args[:extra])),
