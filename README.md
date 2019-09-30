@@ -34,9 +34,19 @@ Include awesome_sort in your javascript and css application files
 In config/initializers, create an awesome_sort with similar syntax:
 ```ruby
 AwesomeSort.configure do |config|
-  config.add_sorter  :contacts, :name, ->(scope, direction){ scope.order(surname: direction, forename: direction) }
-  config.add_sorter  :contacts, :organisations, ->(direction){ scope.eager_load(:clients).order("institute.name #{direction}") }
-  config.add_default :contacts, ->(scope){ scope.eager_load(:clients).order('institute.name') }
+  config.add_sorter(
+    :contacts,
+    :name,
+    ->(scope, direction){ scope.order(surname: direction, forename: direction) }
+  )
+
+  config.add_sorter(
+    :contacts,
+    :organisations,
+    ->(direction){ scope.eager_load(:clients).order("institute.name #{direction}") }
+  )
+
+  config.defaults[sort_by: 'name'] or config.defaults = { sort_order: 'desc', sort_by: 'dob' }
 end
 ```
 
