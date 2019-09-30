@@ -6,6 +6,8 @@ module AwesomeSort
   mattr_accessor :sorters, :defaults
 
   def self.configure
+    self.sorters = {}
+    self.defaults = { sort_order: 'asc', sort_by: 'name' }
     yield self
   end
 
@@ -13,11 +15,4 @@ module AwesomeSort
     self.sorters[model] ||= {}
     self.sorters[model][attribute] = sorter
   end
-
-  def self.set_default(model, attribute_or_sorter)
-    self.defaults[model] = attribute_or_sorter
-  end
 end
-
-AwesomeSort.defaults = {}
-AwesomeSort.sorters = {}
