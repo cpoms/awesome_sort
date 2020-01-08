@@ -1,5 +1,14 @@
 module AwesomeSort
   module AwesomeSortHelper
+    ALLOWED_SORT_ORDERS = [
+      'asc',
+      'desc',
+      'ASC',
+      'DESC',
+      :asc,
+      :desc,
+    ]
+
     def column_sort(args = {})
       args[:extra] ||= {}
       # Should pass it column_name, link_name, controller_name and
@@ -30,6 +39,7 @@ module AwesomeSort
 
     def sort(scope, sort_by, sort_order)
       klass = scope.model.name.tableize.to_sym
+      sort_order = (ALLOWED_SORT_ORDERS & sort_order).first || 'asc'
 
       if sort_by
         if sorter = AwesomeSort.sorters[klass][sort_by.to_sym]
