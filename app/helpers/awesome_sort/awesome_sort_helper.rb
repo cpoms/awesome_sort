@@ -39,7 +39,7 @@ module AwesomeSort
 
     def sort(scope, sort_by, sort_order)
       klass = scope.model.name.tableize.to_sym
-      sort_order = (ALLOWED_SORT_ORDERS & sort_order).first || 'asc'
+      sort_order = (ALLOWED_SORT_ORDERS & [sort_order]).first || 'asc'
 
       if sort_by
         if sorter = AwesomeSort.sorters[klass][sort_by.to_sym]
