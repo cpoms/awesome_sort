@@ -1,4 +1,3 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "awesome_sort/version"
@@ -11,11 +10,11 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Responsive sortable table}
   spec.description   = %q{This gem should make the creation of responsive sortable tables much easier.}
-  spec.homepage      = "https://cpoms.co.uk"
+  spec.homepage      = "https://www.cpoms.co.uk"
   spec.license       = "MIT"
-  spec.metadata      = { 
-    "source_code_uri"   => "https://github.com/meritec/awesome_sort",
-    "documentation_uri" => "https://github.com/meritec/awesome_sort"
+  spec.metadata      = {
+    "source_code_uri"   => "https://github.com/cpoms/awesome_sort",
+    "documentation_uri" => "https://github.com/cpoms/awesome_sort"
   }
 
   # Specify which files should be added to the gem when it is released.
@@ -27,8 +26,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "railties", ">= 3.2", "< 6.1"
-  spec.add_runtime_dependency "activesupport", ">= 3.2", "< 6.1"
+  spec.add_runtime_dependency "railties", ">= 3.2", "< 6.2"
+  spec.add_runtime_dependency "activesupport", ">= 3.2", "< 6.2"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 10.0"
